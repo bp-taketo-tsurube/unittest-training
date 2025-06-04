@@ -41,7 +41,7 @@ def test_fizzbuzz_15():
     assert result == expected_output
 
 
-# nnot 3 5
+# n not 3 5
 def test_fizzbuzz_7():
     # Arrange
     input_value = 7
@@ -54,45 +54,43 @@ def test_fizzbuzz_7():
     assert result == expected_output
 
 
+# n<1
 def test_fizzbuzz_0():
     # Arrange
     input_value = 0
-    # expected_output = ValueError
+    expected_output = "n must be between 1 and 1000."
 
     # Act
     with pytest.raises(ValueError) as e:
-        result = fizzbuzz(input_value)
+        fizzbuzz(input_value)
 
     # Assert
-    assert str(e.value) == "n must be between 1 and 1000."
+    assert str(e.value) == expected_output
 
 
+# n>1000
 def test_fizzbuzz_1001():
     # Arrange
     input_value = 1001
-    # expected_output = ValueError
+    expected_output = "n must be between 1 and 1000."
 
     # Act
     with pytest.raises(ValueError) as e:
-        result = fizzbuzz(input_value)
+        fizzbuzz(input_value)
 
     # Assert
-    assert str(e.value) == "n must be between 1 and 1000."
+    assert str(e.value) == expected_output
 
 
+# n not integer (str)
 def test_fizzbuzz_str():
     # Arrange
     input_value = "a"
-    # expected_output = ValueError
+    expected_output = "n must be an integer."
 
     # Act
     with pytest.raises(TypeError) as e:
-        result = fizzbuzz(input_value)
+        fizzbuzz(input_value)
 
     # Assert
-    assert str(e.value) == "n must be an integer."
-
-
-# n<1
-# n>1000
-# n not integer
+    assert str(e.value) == expected_output
